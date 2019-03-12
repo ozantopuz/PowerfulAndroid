@@ -1,4 +1,4 @@
-package com.ozantopuz.powerfulAndroid.core.dagger.viewModel
+package com.ozantopuz.powerfulAndroid.core.dagger.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds

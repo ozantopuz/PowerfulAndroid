@@ -5,7 +5,11 @@ import com.ozantopuz.powerfulAndroid.core.dagger.module.ActivityBindingModule
 import com.ozantopuz.powerfulAndroid.core.dagger.module.ApplicationModule
 import com.ozantopuz.powerfulAndroid.core.dagger.module.DatabaseModule
 import com.ozantopuz.powerfulAndroid.core.dagger.module.NetworkModule
-import com.ozantopuz.powerfulAndroid.core.dagger.viewModel.ViewModelModule
+import com.ozantopuz.powerfulAndroid.core.dagger.viewmodel.ViewModelModule
+import com.ozantopuz.powerfulAndroid.data.dagger.ApiModule
+import com.ozantopuz.powerfulAndroid.data.dagger.RepositoryModule
+import com.ozantopuz.powerfulAndroid.data.dagger.ServiceModule
+import com.ozantopuz.powerfulAndroid.data.dagger.UseCaseModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

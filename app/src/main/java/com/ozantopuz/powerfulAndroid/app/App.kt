@@ -1,5 +1,6 @@
 package com.ozantopuz.powerfulAndroid.app
 
+import com.ozantopuz.powerfulAndroid.core.dagger.component.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
