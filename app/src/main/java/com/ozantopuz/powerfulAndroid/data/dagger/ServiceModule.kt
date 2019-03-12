@@ -1,9 +1,13 @@
 package com.ozantopuz.powerfulAndroid.data.dagger
 
+import com.ozantopuz.powerfulAndroid.data.service.MovieService
+import com.ozantopuz.powerfulAndroid.data.service.MovieServiceImp
+import dagger.Binds
 import dagger.Module
 
 @Module
-class ServiceModule {
+abstract class ServiceModule {
 
-
+    @Binds
+    abstract fun provideMovieService(service: MovieServiceImp): MovieService
 }

@@ -15,5 +15,5 @@ class BaseEntity<T> (
     var totalPages: Int? = null,
     @SerializedName("results")
     @Expose
-    var results: T? = null
+    var results: List<T>? = null
 )
