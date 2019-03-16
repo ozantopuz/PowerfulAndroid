@@ -1,39 +1,22 @@
 package com.ozantopuz.powerfulAndroid.scene.dashboard.view
 
-import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.snackbar.Snackbar
 import com.ozantopuz.powerfulAndroid.R
-import kotlinx.android.synthetic.main.activity_main.*
+import com.ozantopuz.powerfulAndroid.core.mvvm.BaseActivity
+import com.ozantopuz.powerfulAndroid.core.mvvm.with
+import com.ozantopuz.powerfulAndroid.databinding.ActivityDashboardBinding
+import com.ozantopuz.powerfulAndroid.scene.dashboard.viewmodel.DashboardViewModel
 
-class DashboardActivity : AppCompatActivity() {
+class DashboardActivity : BaseActivity<ActivityDashboardBinding, DashboardViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+    override fun layoutId() = R.layout.activity_dashboard
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-    }
+    override fun instantiateViewModel(): DashboardViewModel = with(viewModelFactory)
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
+    override fun attachView() = viewModel.attachView(lifecycle)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+    override fun setupView() {
+        /*viewModel.movies.observe(this, Observer {
+                Toast.makeText(this, it[0].title, Toast.LENGTH_SHORT).show()
+        })*/
     }
 }
