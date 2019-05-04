@@ -4,14 +4,20 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCompatActivity() {
+
+
+abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCompatActivity(), LifecycleRegistryOwner{
+
+    var lifecycleRegistry = LifecycleRegistry(this)
+
+    override fun getLifecycle(): LifecycleRegistry {
+        return lifecycleRegistry;
+    }
 
     @LayoutRes
     abstract fun layoutId(): Int
@@ -21,6 +27,8 @@ abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCom
     abstract fun attachView()
 
     abstract fun setupView()
+
+    abstract fun bindViewmodel()
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -45,6 +53,8 @@ abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCom
         lifecycle.addObserver(viewModel)
 
         setupView()
+
+        bindViewmodel()
     }
 
     @Synchronized

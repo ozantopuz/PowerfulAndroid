@@ -16,7 +16,6 @@ class ViewModelFactory
         val creator = creators[modelClass]
             ?: creators.asIterable().firstOrNull { modelClass.isAssignableFrom(it.key) }?.value
             ?: throw IllegalArgumentException("Unknown ViewModel class $modelClass")
-
         return try {
             creator.get() as T
         } catch (e: Exception) {

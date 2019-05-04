@@ -1,17 +1,25 @@
 package com.ozantopuz.powerfulAndroid.data.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class Movie(
 
+    @field:PrimaryKey
     @SerializedName("id")
     @Expose
     var id : Int? = null,
 
+    @SerializedName("vote_count")
+    @Expose
+    var voteCount: Double? = null,
+
     @SerializedName("vote_average")
     @Expose
-    var voteAverage : Number? = null,
+    var voteAverage : Double? = null,
 
     @SerializedName("title")
     @Expose
@@ -19,7 +27,7 @@ data class Movie(
 
     @SerializedName("popularity")
     @Expose
-    var popularity : Number? = null,
+    var popularity : Double? = null,
 
     @SerializedName("poster_path")
     @Expose
@@ -36,5 +44,4 @@ data class Movie(
     @SerializedName("release_date")
     @Expose
     var releaseDate : String? = null
-
 )

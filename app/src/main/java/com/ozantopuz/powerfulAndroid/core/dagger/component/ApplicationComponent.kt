@@ -8,8 +8,6 @@ import com.ozantopuz.powerfulAndroid.core.dagger.module.NetworkModule
 import com.ozantopuz.powerfulAndroid.core.dagger.viewmodel.ViewModelModule
 import com.ozantopuz.powerfulAndroid.data.dagger.ApiModule
 import com.ozantopuz.powerfulAndroid.data.dagger.RepositoryModule
-import com.ozantopuz.powerfulAndroid.data.dagger.ServiceModule
-import com.ozantopuz.powerfulAndroid.data.dagger.UseCaseModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -19,12 +17,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
-    ApplicationModule::class, DatabaseModule::class,
+    ApplicationModule::class,
+    DatabaseModule::class,
     RepositoryModule::class,
     NetworkModule::class,
     ApiModule::class,
-    ServiceModule::class,
-    UseCaseModule::class,
     ViewModelModule::class,
     ActivityBindingModule::class
 ])
