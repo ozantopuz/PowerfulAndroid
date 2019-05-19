@@ -33,13 +33,11 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, DashboardViewMo
 
     override fun setupView() {
         setRecyclerView()
-
-        viewModel.isLoading.observe(this, Observer { if (it) showLoading() else hideLoading() })
-        viewModel.movies.observe(this, Observer { updateRecyclerView(it) })
     }
 
-    override fun bindViewmodel() {
-
+    override fun bindViewModel() {
+        viewModel.isLoading.observe(this, Observer { if (it) showLoading() else hideLoading() })
+        viewModel.movies.observe(this, Observer { updateRecyclerView(it) })
     }
 
     private fun updateRecyclerView(movies : List<Movie>) {

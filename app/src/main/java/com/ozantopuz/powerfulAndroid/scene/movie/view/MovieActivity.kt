@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_movie_start.*
 
 class MovieActivity : BaseActivity<ActivityMovieStartBinding, MovieViewModel>() {
 
+    var id : Int? = null
 
     override fun layoutId() = R.layout.activity_movie_start
 
@@ -20,7 +21,10 @@ class MovieActivity : BaseActivity<ActivityMovieStartBinding, MovieViewModel>() 
     override fun attachView() = viewModel.attachView(lifecycle)
 
     override fun setupView() {
-        val id = intent.getIntExtra("id", 0)
+        id = intent.getIntExtra("id", 0)
+    }
+
+    override fun bindViewModel() {
         viewModel.id.value = id
         viewModel.getMovie()
 
@@ -32,10 +36,5 @@ class MovieActivity : BaseActivity<ActivityMovieStartBinding, MovieViewModel>() 
 
             Handler().postDelayed({ motionLayout?.transitionToEnd() }, 500)
         })
-
-    }
-
-    override fun bindViewmodel() {
-
     }
 }

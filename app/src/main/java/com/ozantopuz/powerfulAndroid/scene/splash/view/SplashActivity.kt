@@ -19,10 +19,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
     override fun attachView() = viewModel.attachView(lifecycle)
 
     override fun setupView() {
-        viewModel.delay.observe(this, Observer { clearAndOpen<DashboardActivity>() })
+
     }
 
-    override fun bindViewmodel() {
-
+    override fun bindViewModel() {
+        viewModel.delay.observe(this, Observer { clearAndOpen<DashboardActivity>() })
     }
 }

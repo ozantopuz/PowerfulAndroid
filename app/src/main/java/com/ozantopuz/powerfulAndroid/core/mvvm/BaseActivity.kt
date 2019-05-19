@@ -28,7 +28,7 @@ abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCom
 
     abstract fun setupView()
 
-    abstract fun bindViewmodel()
+    abstract fun bindViewModel()
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -54,7 +54,7 @@ abstract class BaseActivity<B: ViewDataBinding, T : BaseViewModel>: DaggerAppCom
 
         setupView()
 
-        bindViewmodel()
+        bindViewModel()
     }
 
     @Synchronized
