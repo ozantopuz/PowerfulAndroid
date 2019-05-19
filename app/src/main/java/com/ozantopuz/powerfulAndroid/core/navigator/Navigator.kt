@@ -15,9 +15,10 @@ object Navigator{
         startActivity(i)
     }
 
-    inline fun <reified T : Activity> Context.clearAndOpen() {
+    inline fun <reified T : Activity> Activity.clearAndOpen() {
         val i = Intent(this, T::class.java)
         i.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(i)
+        this.finish()
     }
 }
